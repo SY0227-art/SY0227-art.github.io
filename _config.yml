@@ -1,0 +1,11 @@
+theme: jekyll-theme-cayman
+twitter:
+  username: @test
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: https://pixabay.com/ja/photos/%E8%89%B2-%E9%9B%A8-%E8%87%AA%E7%84%B6-%E3%83%89%E3%83%AD%E3%83%83%E3%83%97-6185159
+        height: 630
+        width: 1200
