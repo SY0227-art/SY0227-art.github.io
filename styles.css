@@ -1,0 +1,178 @@
+/* 省略された既存のCSS */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%; /* 画面全体の幅を使う */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* 横と縦のスクロールを防ぐ */
+}
+/* コンテナ内の要素を横並びにする */
+.button-container {
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
+    margin-top: 20px; /* ボタンの上にスペースを確保 */
+    gap: 10px; /* ボタンの間隔を調整 */
+}
+
+#play-button, #reset-button {
+    padding: 10px 20px;
+    font-size: 1.2rem; /* フォントサイズを調整 */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative; /* ボタンの位置を相対的に設定 */
+}
+
+#play-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+#play-button:hover {
+    background-color: #45a049;
+}
+
+#reset-button {
+    background-color: #f44336;
+    color: white;
+}
+
+#reset-button:hover {
+    background-color: #e53935;
+}
+
+.container {
+    position: relative;
+    width: 90%; /* 画面の90%幅を使用 */
+    height: 90%; /* 画面の90%高さを使用 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#line-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* canvasをコンテナの幅に合わせる */
+    height: 100%; /* canvasをコンテナの高さに合わせる */
+    z-index: 10;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* 横幅をコンテナに合わせる */
+    height: calc(80% - 60px); /* 高さを調整して、再生ボタンとリセットボタンのスペースを確保 */
+    z-index: 10;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 15%;
+    box-sizing: border-box; /* パディングとボーダーを幅に含める */
+}
+
+.note-button {
+    padding: 8px;
+    font-size: 0.9rem; /* テキストサイズを調整 */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    writing-mode: horizontal-tb; /* 「ファ」を横書きにする */
+}
+
+.note-button.playing {
+    transform: scale(1.2);
+    background-color: #ffeb3b;
+}
+
+.selected {
+    background-color: #cddc39;
+}
+
+#play-button, #reset-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem; /* フォントサイズを調整 */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 10; /* ボタンが他の要素の下に隠れないようにする */
+}
+
+#play-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+#play-button:hover {
+    background-color: #45a049;
+}
+
+#reset-button {
+    background-color: #f44336;
+    color: white;
+    margin-right: 10px; /* 再生ボタンとの間隔を設定 */
+}
+
+#reset-button:hover {
+    background-color: #e53935;
+}
+
+.instrument-selector, .options {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    gap: 20px; /* ラジオボタンとテキストの間隔を調整 */
+    z-index: 11;
+}
+
+.instrument-selector label {
+    font-size: 1.2rem; /* テキストのサイズを調整 */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.instrument-selector input[type="radio"] {
+    width: 25px; /* ラジオボタンのサイズを大きく */
+    height: 25px; /* ラジオボタンのサイズを大きく */
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-appearance: radio; /* スタイルをリセット */
+    appearance: radio; /* スタイルをリセット */
+    transform: none; /* transform を解除して、サイズを変更するため */
+    pointer-events: auto; /* クリックを有効にする */
+    z-index: 11; /* 他の要素の上に表示する */
+}
+
+#current-instrument {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.note-button.disabled {
+    background-color: #d3d3d3; /* 灰色 */
+    border: 2px solid #aaa; /* 灰色のボーダー */
+    cursor: not-allowed; /* クリックできないカーソル */
+    color: #666; /* グレーのテキスト */
+}
